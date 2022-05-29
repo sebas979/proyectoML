@@ -8,55 +8,32 @@
 
     <div class="center"><h1>Paper Utilizados</h1></div>
    <div class="center">
-    
+    <form method="POST">
     <div class="select">
-        <select>
-          <option value="1">Pure CSS Select</option>
-          <option value="2">No JS</option>
-          <option value="3">Nice!</option>
+      <label for="tipo">Tipos de Artículos utilizados</label>
+        <select id="tipo" name="tipo">
+          <option value="2">Paper y sus referencias</option>
+          <option value="1">Artículo</option>
+          <option value="0">Referencias</option>
         </select>
-      </div>
+    </div>
+    <div class="select">
+      <label for="tema">Temas de los Artículos utilizados</label>
+        <select id="tema" name="tema">
+          <option value="todos">Todos los temas</option>
+          <option value="exactas">Matematicas</option>
+          <option value="medi">Medicina</option>
+          <option value="sociales">Ciencias Sociales</option>
+          <option value="compu">Computación</option>
+        </select>
+    </div>
+    <button>Filtrar</button>
+    </form>
    </div>
+   <label>Número de filas:{{ filas }}</label>
 
    <div class="container">
-    <table>
-        <thead>
-            <tr>
-                <th>Titels</th>
-                <th>KeyWords</th>
-                <th>Abstract</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-
-            </tr>
-            <tr>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-
-            </tr>
-            <tr>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-            </tr>
-            <tr>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-            </tr>
-            <tr>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-            </tr>
-        </tbody>
-    </table>
+    {% include 'paginas/tabla.html' %}
 </div>
 
 
