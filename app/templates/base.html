@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - Portafolio</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='barraMenu.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+<body>
+    <nav>
+    <a href="{{ url_for('proyecto.index')}}"> Inicio</a>
+    <a href="{{ url_for('proyecto.matriz')}}">Matriz</a>
+    <a href="{{ url_for('proyecto.graficos')}}">Graficas</a>
+    <a>Cloustering</a>
+    <a href="{{ url_for('proyecto.subir')}}">Subir CSV</a>
+	<div class="animation start-home"></div>
+
+    </nav>
+    <section>{% block content %}{% endblock %}</section>
+
+    <footer>
+        <div>
+            <ul>
+              <li><a class="foo" href="https://twitter.com/julesforrest">Twitter</a></li>
+              <li><a class="foo" href="https://codepen.io/julesforrest">Codepen</a></li>
+              <li><a class="foo" href="mailto:julesforrest@gmail.com">Email</a></li>
+              <li><a class="foo" href="https://dribbble.com/julesforrest">Dribbble</a></li>
+              <li><a class="foo" href="https://github.com/julesforrest">Github</a></li>              
+              <li>
+                <p>👋</p>
+              </li>
+            </ul>
+          </div>
+    </footer>
+    
+
+</body>
