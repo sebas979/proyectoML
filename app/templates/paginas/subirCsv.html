@@ -26,7 +26,7 @@ function crearTabla(data) {
       } else {
         tabla += '<tr>';
       }
-      const celdasFila = todasFilas[fila].split(';');
+      const celdasFila = todasFilas[fila].split(',');
       for (let rowCell = 0; rowCell < celdasFila.length; rowCell++) {
         if (fila === 0) {
           tabla += '<th>';
