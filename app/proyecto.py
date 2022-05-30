@@ -63,21 +63,22 @@ def matriz():
         'keywords' : datosfiltrados['keywords'].tolist(),
         'abstract' : datosfiltrados['abstract'].tolist()
     })
-    matriz.to_html('app/templates/paginas/tablas/tabla.html',index=False)
+    matriz.to_html('app/templates/paginas/tabla.html',index=False)
     return render_template('paginas/matriz.html',filas=len(matriz['titulo']))
 
 @bp.route('/graficos', methods=['GET'])
 def graficos():
-    codigo_img_total = graficoMapaCalor(M,'todos.html')
-    codigo_img_titulos = graficoMapaCalor(mT,'titulos.html')
-    codigo_img_keywords = graficoMapaCalor(mK,'keyword.html')
-    codigo_img_abstracts = graficoMapaCalor(mA,'abstract.html')
-    return render_template('paginas/graficas.html',imagen={
-        'todo':codigo_img_total,
-        'titulo':codigo_img_titulos,
-        'keywords':codigo_img_keywords,
-        'abstract':codigo_img_abstracts
-    })
+    # codigo_img_total = graficoMapaCalor(M,'todos.html')
+    # codigo_img_titulos = graficoMapaCalor(mT,'titulos.html')
+    # codigo_img_keywords = graficoMapaCalor(mK,'keyword.html')
+    # codigo_img_abstracts = graficoMapaCalor(mA,'abstract.html')
+    return render_template('paginas/graficas.html')
+    # return render_template('paginas/graficas.html',imagen={
+    #     'todo':codigo_img_total,
+    #     'titulo':codigo_img_titulos,
+    #     'keywords':codigo_img_keywords,
+    #     'abstract':codigo_img_abstracts
+    # })
 
 # figure.savefig('mapa.png',dpi=400)
 # plt.imshow(data, cmap ="inferno") 
