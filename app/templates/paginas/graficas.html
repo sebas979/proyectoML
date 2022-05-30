@@ -23,8 +23,8 @@
 
 
         <div class="div1" >
-            <input id="s2" type="checkbox" class="switch" checked>
-            <label for="s2">Mostrar</label> 
+            <!-- <input id="s2" type="checkbox" class="switch" checked>
+            <label for="s2">Mostrar</label>  -->
             <h1>Mapa de Calor de la Matriz de distancias de todos los documentos</h1>
            
             <div class="parent">
@@ -71,12 +71,25 @@
    });
 });
 </script>
-
         <div class="div2 " >
-            <input id="s2" type="checkbox" class="switch" checked>
-            <label for="s2">Mostrar</label> 
-            <div><h1>Matriz</h1></div>
-        
+            <!-- <input id="s2" type="checkbox" class="switch" checked
+            <label for="s2">Mostrar</label>  -->
+            <h1>Matriz de Distancia de todos los documentos</h1>
+            <div class="scrollDiv">
+                {% include 'paginas/todos.html' %}
+            </div>
+            <h1>Matriz de Distancia de los titulos</h1>
+            <div class="scrollDiv">
+                {% include 'paginas/titulos.html' %}
+            </div>
+            <h1>Matriz de Distancia de las keywords</h1>
+            <div class="scrollDiv">
+                {% include 'paginas/keyword.html' %}
+            </div>
+            <h1>Matriz de Distancia de los abstract</h1>
+            <div class="scrollDiv">
+                {% include 'paginas/abstract.html' %}
+            </div>
         </div>
     </div>
     
