@@ -7,34 +7,45 @@
 {% block content %}
 
     <div class="center"><h1>Paper Utilizados</h1></div>
-   <div class="center">
     <form method="POST">
-    <div class="select">
-      <label for="tipo">Tipos de Artículos utilizados</label>
-        <select id="tipo" name="tipo">
-          <option value="2">Paper y sus referencias</option>
-          <option value="1">Artículo</option>
-          <option value="0">Referencias</option>
-        </select>
-    </div>
-    <div class="select">
-      <label for="tema">Temas de los Artículos utilizados</label>
-        <select id="tema" name="tema">
-          <option value="todos">Todos los temas</option>
-          <option value="exactas">Matematicas</option>
-          <option value="medi">Medicina</option>
-          <option value="sociales">Ciencias Sociales</option>
-          <option value="compu">Computación</option>
-        </select>
-    </div>
-    <button>Filtrar</button>
+        <div class="center">   
+        <div class="doblCol">
+            <div class="select">
+            <label for="tipo">Tipos de Artículos utilizados</label>
+                <select id="tipo" name="tipo">
+                <option value="2">Paper y sus referencias</option>
+                <option value="1">Artículo</option>
+                <option value="0">Referencias</option>
+                </select>
+            </div>
+            <div class="separador"></div>
+            <div class="select">
+            <label for="tema">Temas de los Artículos utilizados</label>
+                <select id="tema" name="tema">
+                <option value="todos">Todos los temas</option>
+                <option value="exactas">Matematicas</option>
+                <option value="medi">Medicina</option>
+                <option value="sociales">Ciencias Sociales</option>
+                <option value="compu">Computación</option>
+                </select>
+            </div>
+        </div>
+        </div>
+        <div class="center">
+            <button class="boton_personalizado ">Filtrar</button>            
+        </div>
+        <label class="labelCentrado">Número de filas:<b>{{ filas }}</b></label>
     </form>
-   </div>
-   <label>Número de filas:{{ filas }}</label>
+   
 
    <div class="container">
     {% include 'paginas/tabla.html' %}
 </div>
+
+<div class="scrollDiv">
+    <img src="{{ url_for('static', filename='upsTra.png') }}" width="1500px" height="1000px">
+</div>
+
 
 
 {% endblock %}

@@ -1,5 +1,6 @@
 /* principal #A0735F */
 /* complementario #5F8CA0 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 html{
     font-family: 'Rufina', sans-serif;
 }
@@ -267,7 +268,7 @@ table {
 	line-height: 24px;
 	margin: 30px auto;
 	text-align: left;
-	width: 800px;
+	width: 1200px;
 }	
 
 th {
@@ -374,6 +375,55 @@ tbody:hover tr:hover td {
     
 }
 
-/*COMBOBOX*/
+/*BOOTOM*/
 
+.boton_personalizado{
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 800;
+    font-size: 20px;
+    width:180px;
+    color: #ffffff;
+    background-color: #4a9bc4;
+    border-radius: 15px;
+    border: 1px solid #bdec3b;
+  }
+
+  .boton_personalizado:hover{
+    color: #020202;
+    background-color: #1abc9c;
+  }
+
+.doblCol{
+    
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem ;
+    
+}
+
+.separador{    
+    width: 69px;    
+}
+
+.center .boton_personalizado{
+    margin-top: 20px;    
+}
+.labelCentrado{
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+
+/*DIV SCROLL*/
+.scrollDiv{
+    max-height: 800px;
+	max-width: 95%;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+
+}
 
