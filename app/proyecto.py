@@ -90,7 +90,9 @@ def graficos():
 # plt.xticks(data.columns) 
 # plt.yticks(range(len(data)), data.index) 
 
-
+@bp.route('/mds', methods=['GET'])
+def mds():
+    return render_template('paginas/mds.html')
 
 @bp.route('/subir', methods=['GET'])
 def subir():
