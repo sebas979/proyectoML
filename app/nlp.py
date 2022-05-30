@@ -7,7 +7,7 @@ import pandas as pd
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-nltk.download('stopwords')
+# nltk.download('stopwords')
 
 ##funciones
 def limpiarDocumento (cole,idioma):    

@@ -19,7 +19,7 @@ from . import nlp
 from . import distancias as dis
 
 datos = nlp.importarCSV('https://raw.githubusercontent.com/sebas979/archicosCSV/main/DataSet.csv');
-# mT,mK,mA,M=dis.matricesDistancia(datos)
+mT,mK,mA,M=dis.matricesDistancia(datos)
 bp = Blueprint('proyecto',__name__,url_prefix='/')
 
 @bp.route('/', methods=['GET'])
@@ -68,17 +68,17 @@ def matriz():
 
 @bp.route('/graficos', methods=['GET'])
 def graficos():
-    # codigo_img_total = graficoMapaCalor(M,'todos.html')
-    # codigo_img_titulos = graficoMapaCalor(mT,'titulos.html')
-    # codigo_img_keywords = graficoMapaCalor(mK,'keyword.html')
-    # codigo_img_abstracts = graficoMapaCalor(mA,'abstract.html')
-    return render_template('paginas/graficas.html')
-    # return render_template('paginas/graficas.html',imagen={
-    #     'todo':codigo_img_total,
-    #     'titulo':codigo_img_titulos,
-    #     'keywords':codigo_img_keywords,
-    #     'abstract':codigo_img_abstracts
-    # })
+    codigo_img_total = graficoMapaCalor(M,'todos.html')
+    codigo_img_titulos = graficoMapaCalor(mT,'titulos.html')
+    codigo_img_keywords = graficoMapaCalor(mK,'keyword.html')
+    codigo_img_abstracts = graficoMapaCalor(mA,'abstract.html')
+    # return render_template('paginas/graficas.html')
+    return render_template('paginas/graficas.html',imagen={
+        'todo':codigo_img_total,
+        'titulo':codigo_img_titulos,
+        'keywords':codigo_img_keywords,
+        'abstract':codigo_img_abstracts
+    })
 
 # figure.savefig('mapa.png',dpi=400)
 # plt.imshow(data, cmap ="inferno") 
@@ -100,7 +100,7 @@ def subir():
 def graficoMapaCalor(matriz,nombre):
     labels = [i for i in range(1,len(matriz)+1)]
     data = pd.DataFrame(matriz,columns=labels,index=labels)
-    data.to_html('app/templates/paginas/tablas/'+nombre,index=False)
+    data.to_html('app/templates/paginas/'+nombre,index=False)
     img = io.BytesIO()
     plt.figure(figsize = (27,10) )
     mapa1 = sns.heatmap(data,cmap="inferno")
