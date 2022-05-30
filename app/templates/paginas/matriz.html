@@ -38,9 +38,25 @@
     </form>
    
 
-   <div class="container">
-    {% include 'paginas/tabla.html' %}
-</div>
+    <div class="container">
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Keywords</th>
+            <th>Abstract</th>
+        </thead>
+        <tbody>
+            {% for elemento in matriz %}
+            <tr>
+                <td>{{elemento.0}}</td>
+                <td>{{elemento.1}}</td>
+                <td>{{elemento.2}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+    </div>
+    
 
 
 {% endblock %}

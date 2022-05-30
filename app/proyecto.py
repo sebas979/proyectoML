@@ -58,21 +58,15 @@ def matriz():
                 if tema == 'compu':
                     filtro = 'tema == "Computacion"'
             datosfiltrados = datos.query(filtro)
-    matriz = pd.DataFrame({
-        'titulo' : datosfiltrados['titulo'].tolist(),
-        'keywords' : datosfiltrados['keywords'].tolist(),
-        'abstract' : datosfiltrados['abstract'].tolist()
-    })
-    matriz.to_html('app/templates/paginas/tabla.html',index=False)
-    return render_template('paginas/matriz.html',filas=len(matriz['titulo']))
+    matriz = list(zip(datosfiltrados['titulo'].tolist(),datosfiltrados['keywords'].tolist(),datosfiltrados['abstract'].tolist()))
+    return render_template('paginas/matriz.html',filas=len(matriz),matriz=matriz)
 
 @bp.route('/graficos', methods=['GET'])
 def graficos():
-    codigo_img_total = graficoMapaCalor(M,'todos.html')
-    codigo_img_titulos = graficoMapaCalor(mT,'titulos.html')
-    codigo_img_keywords = graficoMapaCalor(mK,'keyword.html')
-    codigo_img_abstracts = graficoMapaCalor(mA,'abstract.html')
-    # return render_template('paginas/graficas.html')
+    codigo_img_total = graficoMapaCalor(M)
+    codigo_img_titulos = graficoMapaCalor(mT)
+    codigo_img_keywords = graficoMapaCalor(mK)
+    codigo_img_abstracts = graficoMapaCalor(mA)
     return render_template('paginas/graficas.html',imagen={
         'todo':codigo_img_total,
         'titulo':codigo_img_titulos,
@@ -99,10 +93,9 @@ def mds():
 def subir():
     return render_template('paginas/subirCsv.html')
 
-def graficoMapaCalor(matriz,nombre):
+def graficoMapaCalor(matriz):
     labels = [i for i in range(1,len(matriz)+1)]
-    data = pd.DataFrame(matriz,columns=labels,index=labels)
-    data.to_html('app/templates/paginas/'+nombre,index=False)
+    data = pd.DataFrame(matriz,columns=labels,index=labels) 
     img = io.BytesIO()
     plt.figure(figsize = (27,10) )
     mapa1 = sns.heatmap(data,cmap="inferno")
