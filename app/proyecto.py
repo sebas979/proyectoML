@@ -19,7 +19,7 @@ from . import nlp
 from . import distancias as dis
 
 datos = nlp.importarCSV('https://raw.githubusercontent.com/sebas979/archicosCSV/main/DataSet.csv');
-mT,mK,mA,M=dis.matricesDistancia(datos)
+# mT,mK,mA,M=dis.matricesDistancia(datos)
 bp = Blueprint('proyecto',__name__,url_prefix='/')
 
 @bp.route('/', methods=['GET'])
