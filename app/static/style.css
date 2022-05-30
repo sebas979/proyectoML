@@ -364,13 +364,11 @@ tbody:hover tr:hover td {
 }
 .div1{    
     text-align: center;
-    background-color: #5F8CA0;
     width: 100%;
     
 }
 .div2{
-    text-align: center;
-    background-color: #815fa0;
+    text-align: center;    
     width: 100%;
     
 }
@@ -426,4 +424,31 @@ tbody:hover tr:hover td {
 	overflow-y: scroll;
 
 }
+
+/*ZOOM IMG*/
+
+.container {
+    display: inline-block;
+    /*padding: 0px;*/
+    position: relative;
+    cursor: pointer;
+}
+.contain {
+    position: fixed;
+    right: 15%;
+    top: 15%;
+    
+    width: 200px;
+    height: 200px;
+}
+
+/*.contain:after{
+    content:'';
+    display:block; 
+    width:0px;
+    height:0px; 
+    position:absolute; 
+    top:0;
+    right:0;
+}*/
 

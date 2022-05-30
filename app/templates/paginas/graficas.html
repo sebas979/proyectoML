@@ -20,25 +20,57 @@
    </div>
 
     <div class="mas">
+
+
         <div class="div1" >
             <input id="s2" type="checkbox" class="switch" checked>
             <label for="s2">Mostrar</label> 
             <h1>Mapa de Calor de la Matriz de distancias de todos los documentos</h1>
+           
+            <div class="parent">
             <img src="data:imge/png;base64,{{imagen.todo}}" alt="imagen" width="90%">
+            </div>
+            <span class="contain">
+                <!-- Into another container -->
+            </span>
+
 
             <h1>Mapa de Calor de la Matriz de distancias de los títulos de todos los documentos</h1>
+            <div class="parent">
             <img src="data:imge/png;base64,{{imagen.titulo}}" alt="imagen" width="90%">
+            </div>
+            <span class="contain">
+                <!-- Into another container -->
+            </span>
 
             <h1>Mapa de Calor de la Matriz de distancias de las Keywords de todos los documentos</h1>
+            <div class="parent">
             <img src="data:imge/png;base64,{{imagen.keywords}}" alt="imagen" width="90%">
-
+            </div>
+            <span class="contain">
+                <!-- Into another container -->
+            </span>
+            
             <h1>Mapa de Calor de la Matriz de distancias de los Abstracts de todos los documentos</h1>
+            <div class="parent">
             <img src="data:imge/png;base64,{{imagen.abstract}}" alt="imagen" width="90%">
-                      
-                      
-                      
-                      
+            </div>
+            <span class="contain">
+                <!-- Into another container -->
+            </span>
+                                                                                        
         </div>
+<script>
+    /*FUNCION PARA ZOOM*/
+    $(document).ready(function() {     
+
+   $('img').parent().zoom({
+       magnify: 1,
+       on:'click',/*Activa el zoom cunado se da click */
+       target: $('.contain').get(0)
+   });
+});
+</script>
 
         <div class="div2 " >
             <input id="s2" type="checkbox" class="switch" checked>
@@ -47,4 +79,6 @@
         
         </div>
     </div>
+    
+    
 {% endblock %}
