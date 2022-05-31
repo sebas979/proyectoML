@@ -8,24 +8,41 @@
    <div class="center">
         <h1>Graficos para Papers</h1>
    </div>
-   <div class="center">
-    
-    <div class="select">
-        <select>
-          <option value="1">Tipo de Grafica</option>
-          <option value="2">No JS</option>
-          <option value="3">Nice!</option>
-        </select>
-      </div>
-   </div>
+    <form method="POST">
+        <div class="center">   
+        <div class="doblCol">
+            <div class="select">
+            <label for="paper">Grafica de</label>
+                <select id="paper" name="paper">
+                    <option value="0">Todos</option>
+                    <option value="1">Paper1</option>
+                    <option value="2">Paper2</option>
+                    <option value="3">Paper3</option>
+                </select>
+            </div>
+            <div class="separador"></div>
+            <div class="select">
+            <label for="tipo">Tipo de articulo</label>
+                <select id="tipo" name="tipo">
+                <option value="todos">Todos los tipos</option>
+                <option value="exactas">Matem&acute;ticas</option>
+                <option value="medi">Medicina</option>
+                <option value="sociales">Ciencias Sociales</option>
+                <option value="compu">Computación</option>
+                </select>
+            </div>
+        </div>
+        </div>
+        <div class="center">
+            <button class="boton_personalizado ">Filtrar</button>            
+        </div>
+    </form>
 
     <div class="mas">
-
-
         <div class="div1" >
             <!-- <input id="s2" type="checkbox" class="switch" checked>
             <label for="s2">Mostrar</label>  -->
-            <h1>Mapa de Calor de la Matriz de distancias de todos los documentos</h1>
+            <h1>Mapa de Calor de la Matriz de distancias General</h1>
            
             <div class="parent">
             <img src="data:imge/png;base64,{{imagen.todo}}" alt="imagen" width="90%">
@@ -35,7 +52,7 @@
             </span>
 
 
-            <h1>Mapa de Calor de la Matriz de distancias de los títulos de todos los documentos</h1>
+            <h1>Mapa de Calor de la Matriz de distancias de los títulos</h1>
             <div class="parent">
             <img src="data:imge/png;base64,{{imagen.titulo}}" alt="imagen" width="90%">
             </div>
@@ -43,7 +60,7 @@
                 <!-- Into another container -->
             </span>
 
-            <h1>Mapa de Calor de la Matriz de distancias de las Keywords de todos los documentos</h1>
+            <h1>Mapa de Calor de la Matriz de distancias de las Keywords</h1>
             <div class="parent">
             <img src="data:imge/png;base64,{{imagen.keywords}}" alt="imagen" width="90%">
             </div>
@@ -51,7 +68,7 @@
                 <!-- Into another container -->
             </span>
             
-            <h1>Mapa de Calor de la Matriz de distancias de los Abstracts de todos los documentos</h1>
+            <h1>Mapa de Calor de la Matriz de distancias de los Abstracts</h1>
             <div class="parent">
             <img src="data:imge/png;base64,{{imagen.abstract}}" alt="imagen" width="90%">
             </div>
@@ -74,24 +91,5 @@
         <div class="div2 " >
             <!-- <input id="s2" type="checkbox" class="switch" checked
             <label for="s2">Mostrar</label>  -->
-            <h1>Matriz de Distancia de todos los documentos</h1>
-            <div class="scrollDiv">
-                {% include 'paginas/todos.html' %}
-            </div>
-            <h1>Matriz de Distancia de los titulos</h1>
-            <div class="scrollDiv">
-                {% include 'paginas/titulos.html' %}
-            </div>
-            <h1>Matriz de Distancia de las keywords</h1>
-            <div class="scrollDiv">
-                {% include 'paginas/keyword.html' %}
-            </div>
-            <h1>Matriz de Distancia de los abstract</h1>
-            <div class="scrollDiv">
-                {% include 'paginas/abstract.html' %}
-            </div>
         </div>
-    </div>
-    
-    
 {% endblock %}
