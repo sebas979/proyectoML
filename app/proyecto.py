@@ -209,3 +209,7 @@ def graficoMapaCalor(matriz):
     img.seek(0)
     codigo_img = base64.b64encode(img.getvalue()).decode()
     return codigo_img
+
+@bp.route('/clous', methods=['GET'])
+def clous():
+    return render_template('paginas/clous.html')
