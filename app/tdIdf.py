@@ -24,13 +24,6 @@ def documentF(matriz):
         doFrecuen.append(np.count_nonzero(lista))
     return doFrecuen
 
-# def matrizPTF(matriz):
-#     mPTF = np.zeros((len(matriz),len(matriz[0]))) 
-#     for i in range(len(matriz)):
-#         for j in range(len(matriz[0])):
-#             mPTF[i][j] = pesadoTF(matriz[i][j])
-#     return matriz
-
 def matrizPTF(matriz):
     mPTF = np.zeros((len(matriz),len(matriz[0]))) 
     i = j = 0

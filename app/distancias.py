@@ -37,14 +37,12 @@ def matricesDistancia (datos):
     diccionario['tokens']= nlp.indexacionToken(abstractsL)
     diccionario['ocurrencias'] = nlp.ocurrencias(diccionario['tokens'],abstractsL)
     #TF-IDF
-    matriz = tdf.bagWords(diccionario,abstractsL)
-    wtf = tdf.matrizPTF(matriz)
-    dF = tdf.documentF(wtf)
-    idf = tdf.IDF(dF,len(abstractsL))
+    # matriz = tdf.bagWords(diccionario,abstractsL)
+    wtf = tdf.matrizPTF(tdf.bagWords(diccionario,abstractsL))
+    idf = tdf.IDF(tdf.documentF(wtf),len(abstractsL))
     tf_idf = tdf.TFIDF(wtf,idf)
     #Coseno Vectorial
-    matrizN = cosV.matrizNormal(tf_idf)
-    matrizAbs = cosV.matrizDistacias(matrizN)
+    matrizAbs = cosV.matrizDistacias(cosV.matrizNormal(tf_idf))
     ##MATRIZ DE DISTACIAS
     ponderacion = [0.5,0.3,0.2]
     Distancias = matrizDistanciaPonderada(matrizAbs,matrizKey,matrizTit,ponderacion)

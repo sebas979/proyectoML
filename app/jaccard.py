@@ -11,22 +11,14 @@ def jaccard(a,b):
 
 def matrizJaccard(coleccion):
     matriz = np.zeros((len(coleccion),len(coleccion)))
-    for i in range(len(coleccion)):
-        for j in range(len(coleccion)):
-            if matriz[i][j] == 0:
-                matriz[i][j] = matriz[j][i] = jaccard(coleccion[i],coleccion[j])
+    i = j = 0
+    while True:
+        if matriz[i][j] == 0:
+            matriz[i][j] = matriz[j][i] = jaccard(coleccion[i],coleccion[j])
+        j += 1
+        if j == len(coleccion):
+            j = 0 
+            i += 1
+        if i == len(coleccion):
+            break
     return matriz
-
-# def matrizJaccard(coleccion):
-#     matriz = np.zeros((len(coleccion),len(coleccion)))
-#     i = j = 0
-#     while True:
-#         if matriz[i][j] == 0:
-#             matriz[i][j] = matriz[j][i] = jaccard(coleccion[i],coleccion[j])
-#         j += 1
-#         if j == len(coleccion):
-#             j = 0 
-#             i += 1
-#         if i == len(coleccion):
-#             break
-#     return matriz
