@@ -14,6 +14,8 @@ import base64
 import io
 import seaborn as sns
 from sklearn.manifold import MDS
+import scipy.cluster.hierarchy as sch
+from sklearn.cluster import AgglomerativeClustering
 
 from . import nlp
 from . import distancias as dis
@@ -198,6 +200,23 @@ def mds():
 def subir():
     return render_template('paginas/subirCsv.html')
 
+@bp.route('/clous', methods=['GET'])
+def clous():
+    img = io.BytesIO()
+    dendrogram = sch.dendrogram(sch.linkage(M, method = 'ward'))
+    plt.title('Dendograma')
+    plt.xlabel('Papers')
+    plt.ylabel('Distancias')
+    plt.savefig(img,format='png')
+    img.seek(0)
+    codigo_arbol = dendograma()
+
+    hc = AgglomerativeClustering(n_clusters = 4, 
+                        affinity = 'euclidean', 
+                        linkage = 'ward')
+    y_hc = hc.fit_predict(M)
+    return render_template('paginas/clous.html',imagenA=codigo_arbol)
+
 def graficoMapaCalor(matriz):
     labels = [i for i in range(1,len(matriz)+1)]
     data = pd.DataFrame(matriz,columns=labels,index=labels) 
@@ -210,6 +229,13 @@ def graficoMapaCalor(matriz):
     codigo_img = base64.b64encode(img.getvalue()).decode()
     return codigo_img
 
-@bp.route('/clous', methods=['GET'])
-def clous():
-    return render_template('paginas/clous.html')
+def dendograma():
+    img = io.BytesIO()
+    dendrogram = sch.dendrogram(sch.linkage(M, method = 'ward'))
+    plt.title('Dendograma')
+    plt.xlabel('Papers')
+    plt.ylabel('Distancias')
+    plt.savefig(img,format='png')
+    img.seek(0)
+    codigo_arbol = base64.b64encode(img.getvalue()).decode()
+    return codigo_arbol
