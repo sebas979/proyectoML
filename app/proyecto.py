@@ -41,7 +41,7 @@ def matriz():
                     filtro = 'tipo == 0'
                 if tema != 'todos':
                     if tema == 'exactas':
-                        filtro += 'and tema == "Ciencias Exactas"'
+                        filtro += 'and tema == "Ciencias exactas"'
                     if tema == 'medi':
                         filtro += 'and tema == "Medicina"'
                     if tema == 'sociales':
@@ -50,7 +50,7 @@ def matriz():
                         filtro += 'and tema == "Computacion"'
             else:
                 if tema == 'exactas':
-                    filtro = 'tema == "Ciencias Exactas"'
+                    filtro = 'tema == "Ciencias exactas"'
                 if tema == 'medi':
                     filtro = 'tema == "Medicina"'
                 if tema == 'sociales':
