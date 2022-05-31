@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>{% block title %}{% endblock %} - Portafolio</title>
+<title>{% block title %}{% endblock %} - Bienvenido</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='barraMenu.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <a href="{{ url_for('proyecto.index')}}"> Inicio</a>
     <a href="{{ url_for('proyecto.matriz')}}">Matriz</a>
     <a href="{{ url_for('proyecto.graficos')}}">Graficas</a>
-    <a href="{{ url_for('proyecto.clous')}}">Cloustering</a>
+    <a href="{{ url_for('proyecto.clous')}}">Clustering</a>
     <a href="{{ url_for('proyecto.mds')}}">MDS</a>
     <a href="{{ url_for('proyecto.subir')}}">Subir CSV</a>
 	<div class="animation start-home"></div>
