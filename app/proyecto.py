@@ -41,20 +41,20 @@ def matriz():
                     filtro = 'tipo == 0'
                 if tema != 'todos':
                     if tema == 'exactas':
-                        filtro += 'and tema == "exactas"'
+                        filtro += 'and tema == "Ciencias Exactas"'
                     if tema == 'medi':
-                        filtro += 'and tema == "Medi"'
+                        filtro += 'and tema == "Medicina"'
                     if tema == 'sociales':
-                        filtro += 'and tema == "social"'
+                        filtro += 'and tema == "Ciencias Sociales"'
                     if tema == 'compu':
                         filtro += 'and tema == "Computacion"'
             else:
                 if tema == 'exactas':
-                    filtro = 'tema == "exactas"'
+                    filtro = 'tema == "Ciencias Exactas"'
                 if tema == 'medi':
-                    filtro = 'tema == "Medi"'
+                    filtro = 'tema == "Medicina"'
                 if tema == 'sociales':
-                    filtro = 'tema == "social"'
+                    filtro = 'tema == "Ciencias Sociales"'
                 if tema == 'compu':
                     filtro = 'tema == "Computacion"'
             datosfiltrados = datos.query(filtro)
