@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block content %}
-
+<div>
+  <img src="{{ url_for('static', filename='construcion.png') }}" alt="en proseso" 
+  width="800" height="498" >
+</div>
+<!--
 <h2>Seleccionar para procesar y luego mostrar en tabla</h2>
 
 <div class="center">
@@ -15,6 +19,7 @@
   <ul>
     <li>Títulos en este orden: titulos, keywords, abstract, tipo, tema.<br>
     debemos tener encuenta que no deben tener espacios los titulos</li>
+    <li>Se utilizo la extencion para Office Kutools para la limpieza de los documentos</li>
     <li>Eliminar comas ',' dentro del documento xls,xlt,xls,xml,etc. </li>
     <li>Ahora exportamos el CSV para subir</li>
   </ul>
@@ -32,14 +37,14 @@
 <div id="tablares"></div>
 <hr/>
 
+-->
 
-
-<script>
+<!--<script>
 function crearTabla(data) {
     const todasFilas = data.split(/\r?\n|\r/);
     let tabla = '<table>';
     for (let fila = 0; fila < todasFilas.length; fila++) {
-      if (fila === 0) {
+      if (fila == 0) {
         tabla += '<thead>';
         tabla += '<tr>';
       } else {
@@ -47,7 +52,7 @@ function crearTabla(data) {
       }
       const celdasFila = todasFilas[fila].split(',');
       for (let rowCell = 0; rowCell < celdasFila.length; rowCell++) {
-        if (fila === 0) {
+        if (fila == 0) {
           tabla += '<th>';
           tabla += celdasFila[rowCell];
           tabla += '</th>';
@@ -82,5 +87,5 @@ function crearTabla(data) {
   }
   document.querySelector('#archivo2')
     .addEventListener('change', leerArchivo2, false);
-</script>
+</script>-->
 {% endblock %}
