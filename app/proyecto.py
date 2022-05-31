@@ -9,11 +9,11 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-# from matplotlib.backends._backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 import base64
 import io
 import seaborn as sns
+from sklearn.manifold import MDS
 
 from . import nlp
 from . import distancias as dis
@@ -183,7 +183,16 @@ def graficos():
 
 @bp.route('/mds', methods=['GET'])
 def mds():
-    return render_template('paginas/mds.html')
+    mds = MDS(dissimilarity='precomputed', random_state=0)
+    x_trans = mds.fit_transform(M)
+    img = io.BytesIO()
+    plt.figure(figsize=(27,10))
+    figure = sns.scatterplot(x=x_trans[:,0],y=x_trans[:,1],hue=datos['tema'])
+    figura = figure.get_figure()
+    figura.savefig(img,format='png')
+    img.seek(0)
+    codigo_img = base64.b64encode(img.getvalue()).decode()
+    return render_template('paginas/mds.html',imagen=codigo_img)
 
 @bp.route('/subir', methods=['GET'])
 def subir():
